@@ -1,0 +1,16 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst sdram_qsys.axi_simple_master_0 -pg 1 -lvl 2 -y 30
+preplace inst sdram_qsys.clk_0 -pg 1 -lvl 1 -y 150
+preplace inst sdram_qsys.new_sdram_controller_0 -pg 1 -lvl 3 -y 70
+preplace inst sdram_qsys -pg 1 -lvl 1 -y 40 -regy -20
+preplace netloc FAN_OUT<net_container>sdram_qsys</net_container>(SLAVE)new_sdram_controller_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)axi_simple_master_0.reset) 1 1 2 410 180 630
+preplace netloc EXPORT<net_container>sdram_qsys</net_container>(SLAVE)sdram_qsys.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>sdram_qsys</net_container>(SLAVE)sdram_qsys.axi_simple_master_0_reset,(SLAVE)axi_simple_master_0.reset1) 1 0 2 NJ 100 NJ
+preplace netloc EXPORT<net_container>sdram_qsys</net_container>(SLAVE)sdram_qsys.axi_simple_master_0_axm_m0,(SLAVE)axi_simple_master_0.axm_m01) 1 0 2 NJ 40 NJ
+preplace netloc FAN_OUT<net_container>sdram_qsys</net_container>(SLAVE)new_sdram_controller_0.clk,(MASTER)clk_0.clk,(SLAVE)axi_simple_master_0.clock) 1 1 2 390 160 590
+preplace netloc POINT_TO_POINT<net_container>sdram_qsys</net_container>(MASTER)axi_simple_master_0.axm_m0,(SLAVE)new_sdram_controller_0.s1) 1 2 1 610
+preplace netloc EXPORT<net_container>sdram_qsys</net_container>(SLAVE)sdram_qsys.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>sdram_qsys</net_container>(SLAVE)new_sdram_controller_0.wire,(SLAVE)sdram_qsys.new_sdram_controller_0_wire) 1 0 3 NJ 140 NJ 140 NJ
+levelinfo -pg 1 0 180 840
+levelinfo -hier sdram_qsys 190 220 460 700 830
