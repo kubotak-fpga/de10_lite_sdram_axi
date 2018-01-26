@@ -19,7 +19,7 @@
      output wire         axi_wlast_out,
      //Response Chanel
      output wire         axi_bready_out, //always Hi
-     output wire         axi_bvaid_in,
+     input wire          axi_bvaid_in,
      input wire [1: 0]   axi_bresp_in
 
     
