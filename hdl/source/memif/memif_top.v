@@ -2,25 +2,25 @@
 
   module memif_top
     (
-     input wire 	ref_clk, //100MHz
-     input wire 	reset,
-     input wire 	write_start_triger,
-     input wire 	read_start_triger,
-     //output wire 	local_init_done,
+     input wire         ref_clk, //100MHz
+     input wire         reset,
+     input wire         write_start_triger,
+     input wire         read_start_triger,
+     //output wire      local_init_done,
 
      //SDRAM Interface
      output wire [12:0] memory_mem_a,
-     output wire [1:0] 	memory_mem_ba,
+     output wire [1:0]  memory_mem_ba,
 
-     output wire [0:0] 	memory_mem_cke,
-     output wire [0:0] 	memory_mem_cs_n,
+     output wire [0:0]  memory_mem_cke,
+     output wire [0:0]  memory_mem_cs_n,
 
-     output wire [0:0] 	memory_mem_ras_n,
-     output wire [0:0] 	memory_mem_cas_n,
-     output wire [0:0] 	memory_mem_we_n,
+     output wire [0:0]  memory_mem_ras_n,
+     output wire [0:0]  memory_mem_cas_n,
+     output wire [0:0]  memory_mem_we_n,
 
-     inout wire [15:0] 	memory_mem_dq,
-     output wire [1:0] 	memory_mem_dqm
+     inout wire [15:0]  memory_mem_dq,
+     output wire [1:0]  memory_mem_dqm
 
 
      );
@@ -28,23 +28,23 @@
 
 
    //write addr chanel
-   wire 		axi_awready_w0;
-   wire 		axi_awvalid_w0;
-   wire [7: 0] 		axi_awlen_w0;
-   wire [24: 0] 	axi_awaddr_w0;
+   wire                 axi_awready_w0;
+   wire                 axi_awvalid_w0;
+   wire [7: 0]          axi_awlen_w0;
+   wire [24: 0]         axi_awaddr_w0;
 
    //write data chanel
-   wire 		axi_wvalid_w0;
-   wire 		axi_wready_w0;
-   wire 		axi_wlast_w0;
-   wire [15: 0] 	axi_wdata_w0;
+   wire                 axi_wvalid_w0;
+   wire                 axi_wready_w0;
+   wire                 axi_wlast_w0;
+   wire [15: 0]         axi_wdata_w0;
 
    //write response chanel
-   wire 		axi_bresp_w0;
-   wire 		axi_bvalid_w0;
-   wire 		axi_bready_w0;
+   wire [1: 0]          axi_bresp_w0;
+   wire                 axi_bvalid_w0;
+   wire                 axi_bready_w0;
    
-   wire 		aif_reset;
+   wire                 aif_reset;
    
 
    axim_write_control u_axi_master_write_control
@@ -74,17 +74,17 @@
 
 
    
-   wire 		axi_arvalid_r0;
-   wire 		axi_arready_r0;
-   wire [7: 0] 		axi_arlen_r0;
-   wire [24: 0] 	axi_araddr_r0;
+   wire                 axi_arvalid_r0;
+   wire                 axi_arready_r0;
+   wire [7: 0]          axi_arlen_r0;
+   wire [24: 0]         axi_araddr_r0;
 
-   wire 		axi_rready_r0;  //set alway 1
-   wire 		axi_rvalid_r0;
-   wire [15: 0] 	axi_rdata_r0;
+   wire                 axi_rready_r0;  //set alway 1
+   wire                 axi_rvalid_r0;
+   wire [15: 0]         axi_rdata_r0;
 
-   wire 		axi_rresp_r0;
-   wire 		axi_rlast_r0;
+   wire                 axi_rresp_r0;
+   wire                 axi_rlast_r0;
    
 
    axim_read_control u_axim_read_control
@@ -172,7 +172,7 @@
       .new_sdram_controller_0_wire_we_n(memory_mem_we_n), // output
 
       //clock
-      .clk_clk(ref_clk), // input 		       
+      .clk_clk(ref_clk), // input                      
       .reset_reset_n(~reset)                   //input
       );
 
